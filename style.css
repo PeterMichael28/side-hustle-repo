@@ -1,0 +1,314 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    /* overflow-x: hidden; */
+    background: url('img2.jpg') center/cover no-repeat;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+.my-div{
+    background: url('img3.jpg') center/cover no-repeat;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+
+/*header section*/
+#header {
+    position: relative;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+#header .heade {
+    min-height: 8vh;
+    background-color: grey;
+    transition: .4s ease background-color;
+    width: 100%;
+
+}
+.brand{
+    margin: auto 0;
+}
+.brand h1 {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0;
+}
+.brand h1 span {
+    color: crimson;
+}
+#header .nav-ba {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 90%;
+    padding: 0 1px;
+}
+#header .nav-lis ul {
+    list-style: none;
+    position: absolute;
+    background-color: grey;
+    width: 60vw;
+    height: 100vh;
+    right: 0%;
+    top: 0%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    overflow-x: hidden;
+    flex-direction: column;
+    transition: .5s ease right;
+
+
+}
+#header .nav-lis ul.active {
+   display: flex;
+}
+
+#header .nav-lis ul a {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing:  .2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    display: block;
+}
+#header .nav-lis ul a::after {
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgb(red, green, blue);
+    font-size: 10rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: .5s ease letter-spacing;
+}
+#header .nav-lis ul li:hover a::after {
+    transform: translate(-50%, -50%) scale(.7);
+    letter-spacing: 2px;
+}
+#header .nav-lis ul li:hover a{
+    color: rgba(255, 255, 255, .7);
+}
+#header .hamb {
+    z-index: 100;
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px white solid;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: scale(.7);
+    margin-right: 20px;
+}
+#header .hamb::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: hamb-pulse 1s ease infinite;
+}
+#header .hamb .bar {
+    height: 2px;
+    width: 30px;
+    background-color: white;
+    z-index: -1;
+    position: relative;
+}
+#header .hamb .bar::after,
+#header .hamb .bar::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+}
+#header .hamb .bar::after {
+    top: 8px;
+}
+#header .hamb .bar::before {
+    bottom: 8px;
+}
+#header .hamb.active .bar::after {
+    top: 0;
+}
+#header .hamb.active .bar::before {
+    bottom: 0;
+}
+
+@keyframes hamb-pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
+
+/*end of header section*/
+
+/*form*/
+.my-form{
+  
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    background-color: rgba(255, 255, 255, .7);
+    padding-top: 10px;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    color: rgba(0, 0, 0, .6);
+}
+.form-control:focus,
+.form-select:focus{
+    border: none;
+    outline: none;
+    border-color: transparent;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+}
+.form-control,
+.form-select {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .5);
+    background-color: transparent;
+    border-radius: 0;
+}
+.containe{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-control::-webkit-input-placeholder{
+    color: rgba(0, 0, 0, .6);
+    font-size: .9rem;
+}
+
+.eye-span{
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .5);
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.eye-pass{
+    border-right: none;
+}
+.showPassword{
+    display: none;
+}
+.activ .showPassword {
+    display: inline-block;
+}
+.activ .hidePassword{
+    display: none;
+}
+
+.btn-con{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+.btn-color{
+    background-color: grey;
+    color: white;
+}
+
+.err{
+    font-size: .7rem;
+    color: crimson;
+}
+
+.susccess {
+    display: none;
+}
+
+.section {
+    justify-content: center;
+    height: auto;
+    margin: 2rem auto 0;
+}
+.button{
+    font-size: .9rem;
+}
+
+
+
+@media only screen and (min-width:1000px) {
+    #header .hamb {
+        display: none;
+    }
+    #header .nav-lis ul li {
+        display: inline-block;
+        font-size: 1rem;
+        margin: 0 5px;
+    }
+    #header .nav-lis ul li a{
+        font-size: 1.2rem;
+        padding: 5px 10px;
+    }
+    #header .nav-lis ul {
+        position: initial;
+        display: block;
+        height: auto;
+        width: 800px;
+        background-color: grey;
+        margin:0 auto ;
+        
+        
+    }
+    #header .nav-lis ul a::after {
+        display: none;
+    }
+    .nav-ba{
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .pic-div{
+        border: 1px solid black;
+    }
+    .my-form{
+       
+        margin: 0 0 0 2px;
+        
+    }
+}
