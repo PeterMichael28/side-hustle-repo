@@ -5,14 +5,22 @@
 }
 
 body {
-    /* overflow-x: hidden; */
-    background: url('img2.jpg') center/cover no-repeat;
-    height: auto;
+    overflow-x: hidden;
+    background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
+    background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+    background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+    background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+    background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
+    height: 120vh;
     margin: 0;
     padding: 0;
+    font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+
 }
 .my-div{
-    background: url('img3.jpg') center/cover no-repeat;
+    background: url('img5.jpg') center/cover no-repeat;
+    border: none;
+    outline: none;
 }
 
 a{
@@ -33,7 +41,7 @@ a{
 }
 #header .heade {
     min-height: 8vh;
-    background-color: grey;
+    background-color: transparent;
     transition: .4s ease background-color;
     width: 100%;
 
@@ -60,7 +68,7 @@ a{
 #header .nav-lis ul {
     list-style: none;
     position: absolute;
-    background-color: grey;
+    background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
     width: 60vw;
     height: 100vh;
     right: 0%;
@@ -72,6 +80,7 @@ a{
     overflow-x: hidden;
     flex-direction: column;
     transition: .5s ease right;
+    font-size: 1.5rem;
 
 
 }
@@ -183,30 +192,41 @@ a{
     display: flex;
     flex-direction: column;
     place-items: center;
-    background-color: rgba(255, 255, 255, .7);
+    background-color: black;
     padding-top: 10px;
+    
 }
 
 .form-title {
     font-size: 1.8rem;
-    color: rgba(0, 0, 0, .6);
+    color: white;
 }
 .form-control:focus,
-.form-select:focus{
+.form-select:focus {
     border: none;
     outline: none;
     border-color: transparent;
     box-shadow: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
     background-color: transparent;
+    color: white;
 }
+
+.form-control:active,
+.form-select:active {
+    background-color: black;
+}
+
+
 .form-control,
 .form-select {
     outline: none;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, .5);
+    border-bottom: 1px solid white;
     background-color: transparent;
     border-radius: 0;
+    font-size: .9rem;
+    color: white;
 }
 .containe{
     min-height: 100vh;
@@ -216,17 +236,20 @@ a{
     justify-content: center;
 }
 .form-control::-webkit-input-placeholder{
-    color: rgba(0, 0, 0, .6);
+    color: white;
     font-size: .9rem;
 }
 
+
+
 .eye-span{
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, .5);
+    border-bottom: 1px solid white;
     outline: none;
     background-color: transparent;
     cursor: pointer;
     border-radius: 0;
+    color: white;
 }
 
 .eye-pass{
@@ -248,27 +271,47 @@ a{
     padding: 10px 0;
 }
 .btn-color{
-    background-color: grey;
+    background-color: #e86ac4;
     color: white;
+    padding: 8px 15px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: .4s ease all;
 }
 
-.err{
+.btn-color:hover{
+    background-color: white;
+    color: #ee47bf;
+}
+
+small.err{
     font-size: .7rem;
     color: crimson;
+    margin: 0;
 }
 
-.susccess {
+.success {
     display: none;
+    margin: 0px auto;
+    flex-direction: column;
+    place-items: center;
+    background-color: black;
+    padding-top: 10px;
+    height: 400px;
+    text-align: center;
+    justify-content: center;
+    font-size: 1rem;
 }
 
 .section {
     justify-content: center;
     height: auto;
     margin: 2rem auto 0;
+
+
 }
-.button{
-    font-size: .9rem;
-}
+
 
 
 
@@ -290,7 +333,7 @@ a{
         display: block;
         height: auto;
         width: 800px;
-        background-color: grey;
+        background: transparent;
         margin:0 auto ;
         
         
@@ -303,9 +346,6 @@ a{
         margin: 0 auto;
     }
 
-    .pic-div{
-        border: 1px solid black;
-    }
     .my-form{
        
         margin: 0 0 0 2px;

@@ -4,11 +4,12 @@ const mobile_item = document.querySelectorAll('.heade .nav-ba .nav-lis ul li a')
 
 const togglePasswords = document.querySelectorAll('#togglePassword');
 const pass = document.querySelector('#password');
-const conPass = document.querySelector('#confirmPassword');
+const pass2 = document.querySelector('#password2');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
 const phone = document.getElementById('phoneNo');
 const form = document.querySelector('#my-form');
+const success = document.querySelector('.success');
 
 
 
@@ -58,23 +59,24 @@ function setErr(element, message) {
     let input = element.parentElement.parentElement;
     let error = input.querySelector('#error');
     error.innerText = message;
+  
 }
 
 
+/*form validation*/
 
 function validateForm() {
-
-const passVal = pass.value.trim();
-const conPassVal = conPass.value.trim();
-const usernameVal = username.value.trim();
-const emailVal = email.value.trim();
-const phoneVal = phone.value.trim();
+    const passVal = pass.value.trim();
+    const pass2Val = pass2.value.trim();
+    const usernameVal = username.value.trim();
+    const emailVal = email.value.trim();
+    const phoneVal = phone.value.trim();
 
     if(usernameVal === '') {
-        setErr(username, 'Username is required')
+    setErr(username, 'Username is required')
 
     } else {
-        setErr(username, '')
+     setErr(username, '')
     };
 
     if(emailVal === '' || emailVal.includes('@') === false) {
@@ -87,12 +89,12 @@ const phoneVal = phone.value.trim();
         setErr(phone, 'enter a valid number')
         
     } else {
-        setErr(phone, '')
+         setErr(phone, '')
         
     };
 
     if(phoneVal === '') {
-        setErr(phone, 'enter a valid number')
+       setErr(phone, 'enter a valid number')
         
     } else {
         setErr(phone, '')
@@ -107,20 +109,24 @@ const phoneVal = phone.value.trim();
        
     }
 
-    if(conPassVal !== passVal) {
-        setErr(conPass, 'password do not match')
+    if(pass2Val === '' || pass2Val !== passVal) {
+        setErr(pass2, 'password do not match')
      
     } else {
-        setErr(conPass, '')
-   
+        setErr(pass2, '')
+
     }
-    
-  
-    
+
+    if (usernameVal !== '' && emailVal !== '' && phoneVal !== '' && passVal !== '' && pass2Val !== '') {
+        form.style.display = 'none'
+        success.style.display = 'flex'
+    } 
+
+   
 }
 
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    validateForm();
+   validateForm();
 })
